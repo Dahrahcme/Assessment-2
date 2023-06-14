@@ -8,7 +8,8 @@ function UserOutput(props) {
         {/* The text for the output is here */}
         <p className='myText'>
             My name is {props.user}. I am 29 years old. <br />
-            I am a citizen of Nigeria and I am from Ondo state.
+            {/* the two-way binding to display starting username and the input that overwrites the previous name */}
+            <input type="text" onChange={props.change} value={props.user} className=' bg-[#f5f2f2] rounded-2xl p-2 mx-12 shadow-md text-[#423e3e]' />
         </p>
     </div>
   )

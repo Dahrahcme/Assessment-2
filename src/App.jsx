@@ -1,25 +1,36 @@
 // importing all required components
 import React, { Component } from 'react';
 import './App.css';
-import UserInput from './Components/Input/UserInput';
 import UserOutput from './Components/Output/UserOutput';
 
 
 class App extends Component {
   
+  state = {
+    users: [
+      {username: "Ayomikun"}      
+    ]
+  }
+
+  nameChangeHandler = (e) =>{
+    this.setState({
+      users: [
+        {username: e.target.value}      
+    ]
+    })
+  }
+
   render() {
     return (
       <div className="App">
         {/* the UserInput and userOutput is to be rendered  */}
         <div>
-          <UserInput /> 
-          <UserOutput user = {"Ayomikun"} /> 
-          <UserOutput user ={"Jide"}/> 
-          <UserOutput user ={"Seun"}/> 
-          <UserOutput user ={"Ayomide"}/> 
-          <UserOutput user ={"Ireoluwa"}/> 
-          <UserOutput user ={"Ifeoluwa"}/> 
-          <UserOutput user ={"Ola"}/> 
+          {/* Rendering the username with props */}
+          <UserOutput 
+            user = {this.state.users[0].username}
+            change = {this.nameChangeHandler}
+          /> 
+      
           </div> 
       </div>
     );
@@ -29,29 +40,4 @@ class App extends Component {
 export default App;
 
 
-
-// importing all required components
-// import './App.css';
-// import UserInput from './Components/Input/UserInput';
-// import UserOutput from './Components/Output/UserOutput';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       {/* the UserInput and userOutput is to be rendered  */}
-//       <div>
-//         <UserInput /> 
-//         <UserOutput /> 
-//         <UserOutput /> 
-//         <UserOutput /> 
-//         <UserOutput /> 
-//         <UserOutput /> 
-//         <UserOutput /> 
-//         <UserOutput /> 
-//         </div> 
-//     </div>
-//   );
-// }
-
-// export default App;
 
